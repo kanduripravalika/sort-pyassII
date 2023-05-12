@@ -1,0 +1,41 @@
+# case 1
+
+tup =[(2, 5), (1, 2), (4, 4), (2, 3), (2, 1)]
+print("Before sorting:" + str(tup))
+sortedTup = sorted(tup, key=last)
+print("After sorting:" + str(sortedTup))
+
+expected output:
+Before sorting:[(2, 5), (1, 2), (4, 4), (2, 3), (2, 1)]
+After sorting:[(2, 1), (1, 2), (2, 3), (4, 4), (2, 5)]
+
+# case 2
+
+tupList =[(2, 5), (1, 2), (4, 4), (2, 3), (2, 1)]
+print("Before sorting : " + str(tupList))
+listLen = len(tupList); 
+for i in range(0, listLen):
+    for j in range(0, listLen - i - 1):
+        if(tupList[j][-1] > tupList[j + 1][-1]):
+            swap = tupList[j]
+            tupList[j] = tupList[j + 1]
+            tupList[j + 1] = swap
+print("After sorting : " + str(tupList))
+
+excepted output:
+Before sorting : [(2, 5), (1, 2), (4, 4), (2, 3), (2, 1)]
+After sorting : [(2, 1), (1, 2), (2, 3), (4, 4), (2, 5)]
+
+# case 3
+
+def last(n):
+    return n[-1] 
+def sort(tuples):
+    return sorted(tuples, key=last)
+tup=[(2, 5), (1, 2), (4, 4), (2, 3), (2, 1)]
+print("Sorted:")
+print(sort(tup))
+
+excepted output:
+Sorted:
+[(2, 1), (1, 2), (2, 3), (4, 4), (2, 5)]
